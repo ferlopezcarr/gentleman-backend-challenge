@@ -2,7 +2,7 @@ import express from "express";
 import { HealthRoutes } from "./core/routes/health.routes";
 import { MainRoutes } from "./core/routes/main.routes";
 import { Routes } from "./core/routes/routes";
-import { AlbumControlPlane } from "./features/album/album.control-plane";
+import { TopControlPlane } from "./features/tops/top.control-plane";
 
 export default class App {
   public expressApp: express.Application;
@@ -20,7 +20,7 @@ export default class App {
       new HealthRoutes(this.expressApp),
     ];
 
-    new AlbumControlPlane(this.expressApp);
+    new TopControlPlane(this.expressApp);
   }
 
   private middlewares(middlewares?: any[]) {

@@ -1,4 +1,4 @@
-import { SingerRepository } from "../../../../singer/infraestructure/driven/models/singer-repository.model";
+import { SingerRepository } from "./singer-repository.model";
 
 export interface AlbumRepository {
   category: string;
