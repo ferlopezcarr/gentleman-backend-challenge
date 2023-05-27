@@ -26,5 +26,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "cac4e331-a6eb-4591-b19b-36f744205921",
+    "colId": "2cbcdc7c-24dd-4102-9a7b-19a5bb0b22f4",
+    "containerId": "",
+    "name": "top10Albums",
+    "url": "{{API_URL}}/top/10/album",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-27T10:19:16.296Z",
+    "modified": "2023-05-27T10:19:32.419Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
