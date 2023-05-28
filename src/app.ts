@@ -1,3 +1,7 @@
+import { BodyParserMiddleware } from "@core/infraestructure/drivers/adapters/middlewares/body-parser.middleware";
+import { CorsMiddleware } from "@core/infraestructure/drivers/adapters/middlewares/cors.middleware";
+import { LoggerMiddleware } from "@core/infraestructure/drivers/adapters/middlewares/logger.middleware";
+import { Middleware } from "@core/infraestructure/drivers/ports/middleware.port";
 import express from "express";
 import { HealthRoutes } from "./core/routes/health.routes";
 import { MainRoutes } from "./core/routes/main.routes";
@@ -8,25 +12,37 @@ export default class App {
   public expressApp: express.Application;
   public port: number;
 
-  private routes: Routes[];
+  private middlewares: Middleware[] = [];
+  private routes: Routes[] = [];
 
-  constructor(port: number, middlewares?: any[]) {
+  constructor(port: number) {
     this.expressApp = express(); //run the express instance and store in app
     this.port = port;
-    this.middlewares(middlewares);
 
-    this.routes = [
-      new MainRoutes(this.expressApp),
-      new HealthRoutes(this.expressApp),
-    ];
+    this.initMiddlewares(this.expressApp);
+    this.initRoutes(this.expressApp);
 
     new TopControlPlane(this.expressApp);
   }
 
-  private middlewares(middlewares?: any[]) {
-    middlewares?.forEach((middleware) => {
-      this.expressApp.use(middleware);
-    });
+  /**
+   * Init Middlewares
+   * @param app 
+   */
+  private initMiddlewares(app: express.Application) {
+    new BodyParserMiddleware(app);
+    this.middlewares = [new LoggerMiddleware(app), new CorsMiddleware(app)];
+  }
+
+  /**
+   * Init Routes
+   * @param app 
+   */
+  private initRoutes(app: express.Application) {
+    this.routes = [
+      new MainRoutes(this.expressApp),
+      new HealthRoutes(this.expressApp),
+    ];
   }
 
   public listen() {
