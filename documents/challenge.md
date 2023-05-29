@@ -2,7 +2,6 @@
 
 ## Modelo
 
-* Cantantes
 * Albumes
   * Generos
   * Descripcion
@@ -12,4 +11,4 @@
 
 ## Funcionalidad
 
-* Top 10 = cantidadEscuchas
+* Top 10 albumes con mayor cantidad de escuchas
