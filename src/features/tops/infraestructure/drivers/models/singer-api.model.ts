@@ -1,12 +1,11 @@
-import { notUndefinedOrNull } from "@core/infraestructure/errors/field-not-provided.validator.service";
+import { notUndefinedOrNull } from "@core/domain/services";
 import { SingerNameApi } from "./singer-name-api.model";
 
 export class SingerApi {
   private name: SingerNameApi;
 
   constructor(name: SingerNameApi) {
-    notUndefinedOrNull(name)
-    this.name = name;
+    this.name = notUndefinedOrNull(name);
   }
 
   public getName(): SingerNameApi {

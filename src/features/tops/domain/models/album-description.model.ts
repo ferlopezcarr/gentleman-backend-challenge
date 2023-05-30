@@ -1,12 +1,11 @@
-import { notUndefinedOrNull } from "@core/infraestructure/errors/field-not-provided.validator.service";
+import { notEmptyString, notUndefinedOrNull } from "@core/domain/services";
 
 export class AlbumDescription {
   private description: string;
 
   constructor(description: string) {
     notUndefinedOrNull(description);
-    // validate empty string
-    this.description = description;
+    this.description = notEmptyString(description);
   }
 
   public getDescription(): string {

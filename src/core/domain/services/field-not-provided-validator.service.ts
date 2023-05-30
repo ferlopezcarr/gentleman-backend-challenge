@@ -1,4 +1,4 @@
-import { FieldNotProvidedException } from "./field-not-provided.exception";
+import { FieldNotProvidedException } from "../errors";
 
 export const notUndefinedOrNull = <T>(field: T | undefined | null): T => {
   if (field === undefined || field === null) {

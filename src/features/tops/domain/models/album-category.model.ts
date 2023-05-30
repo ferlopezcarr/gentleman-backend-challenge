@@ -1,12 +1,11 @@
-import { notUndefinedOrNull } from "@core/infraestructure/errors/field-not-provided.validator.service";
+import { notEmptyString, notUndefinedOrNull } from "@core/domain/services";
 
 export class AlbumCategory {
   private category: string;
 
   constructor(category: string) {
     notUndefinedOrNull(category);
-    // validate empty string
-    this.category = category;
+    this.category = notEmptyString(category);
   }
 
   public getCategory(): string {

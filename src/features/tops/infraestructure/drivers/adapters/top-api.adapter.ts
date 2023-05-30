@@ -1,26 +1,30 @@
-import { notUndefinedOrNull } from "@core/infraestructure/errors/field-not-provided.validator.service";
-import { Routes } from "@core/routes/routes";
+import { notUndefinedOrNull } from "@core/domain/services/field-not-provided-validator.service";
+import { RouterPort } from "@core/infraestructure/drivers/ports/router.port";
 import { Application, Request, Response } from "express";
-import { GetTop10UseCase } from "../../../application/user-case/get-top-10.use-case";
+import { GetTopAlbumUseCase } from "../../../application/user-case/get-top-album.use-case";
 import { TopApiPort } from "../ports/top-api.port";
+import { TopNumber } from "../../../domain/models/top-number.model";
 
-export class TopApiAdapter extends Routes implements TopApiPort {
-  static readonly ROUTE = "top";
-  static readonly ALBUM_ROUTE = "album";
+export class TopApiAdapter extends RouterPort implements TopApiPort {
+  private readonly ROUTE = "top";
+  private readonly ALBUM_ROUTE = "album";
 
   constructor(
     private app: Application,
-    private getTop10UseCase: GetTop10UseCase
+    private getTopUseCase: GetTopAlbumUseCase
   ) {
-    super(TopApiAdapter.ROUTE);
+    super();
+    const route = this.getApiPath(this.ROUTE);
+
+    // TOP N Albums
     this.app.get(
-      `${this.route}/:topNumber/${TopApiAdapter.ALBUM_ROUTE}`,
-      this.getTop10Albums.bind(this)
+      `${route}/:topNumber/${this.ALBUM_ROUTE}`,
+      this.getTopAlbums.bind(this)
     );
   }
 
-  async getTop10Albums(request: Request, response: Response) {
-    let topNumber: number;
+  async getTopAlbums(request: Request, response: Response) {
+    let topNumber: TopNumber;
     try {
       topNumber = this.getTopNumber(request.params?.topNumber);
     } catch (error) {
@@ -28,18 +32,14 @@ export class TopApiAdapter extends Routes implements TopApiPort {
     }
 
     try {
-      const top10Albums = await this.getTop10UseCase.execute(topNumber);
-      response.json(top10Albums);
+      const topAlbums = await this.getTopUseCase.execute(topNumber);
+      response.json(topAlbums);
     } catch (error) {
       return response.status(500).json(error);
     }
   }
 
-  private getTopNumber(topNumberParam: string) {
-    let topNumber = Number.parseInt(notUndefinedOrNull(topNumberParam));
-    if (topNumber < 0) {
-      throw new Error("topNumber must be a positive integer");
-    }
-    return topNumber;
+  private getTopNumber(topNumberParam: string): TopNumber {
+    return new TopNumber(Number.parseInt(notUndefinedOrNull(topNumberParam)));
   }
 }

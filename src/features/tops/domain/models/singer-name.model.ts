@@ -1,6 +1,6 @@
 import { notEmptyString, notUndefinedOrNull } from "@core/domain/services";
 
-export class SingerNameApi {
+export class SingerName {
   private name: string;
 
   constructor(name: string) {

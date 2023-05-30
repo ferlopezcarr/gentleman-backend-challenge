@@ -1,5 +1,6 @@
+import { TopNumber } from "../../../domain/models/top-number.model";
 import { AlbumRepository } from "../models/album-repository.model";
 
 export interface TopRepositoryPort {
-  getTop10Albums(topNumber: number): Promise<AlbumRepository[]>;
+  getTopAlbums(topNumber: TopNumber): Promise<AlbumRepository[]>;
 }

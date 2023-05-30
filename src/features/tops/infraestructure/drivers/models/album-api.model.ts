@@ -1,20 +1,20 @@
-import { notUndefinedOrNull } from "@core/infraestructure/errors/field-not-provided.validator.service";
+import { notUndefinedOrNull } from "@core/domain/services";
 
-import { AlbumCategory } from "./album-category.model";
-import { AlbumDescription } from "./album-description.model";
+import { AlbumCategoryApi } from "./album-category-api.model";
+import { AlbumDescriptionApi } from "./album-description-api.model";
 import { ListenApi } from "./listen-api.model";
-import { SingerApi } from "../../../../singer copy/infraestructure/singer-api.model";
+import { SingerApi } from "./singer-api.model";
 
 export class AlbumApi {
-  private category: AlbumCategory;
-  private description: AlbumDescription;
+  private category: AlbumCategoryApi;
+  private description: AlbumDescriptionApi;
   private creationDate: Date;
   private singer: SingerApi;
   private listens: ListenApi;
 
   constructor(
-    category: AlbumCategory,
-    description: AlbumDescription,
+    category: AlbumCategoryApi,
+    description: AlbumDescriptionApi,
     creationDate: Date,
     singer: SingerApi,
     listens: ListenApi,
@@ -26,11 +26,11 @@ export class AlbumApi {
     this.listens = notUndefinedOrNull(listens);
   }
 
-  getCategory(): AlbumCategory {
+  getCategory(): AlbumCategoryApi {
     return this.category;
   }
 
-  getDescription(): AlbumDescription {
+  getDescription(): AlbumDescriptionApi {
     return this.description;
   }
 
