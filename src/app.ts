@@ -28,9 +28,8 @@ export default class App {
     this.routers = [
       new MainRouterApiAdapter(this.expressApp),
       new HealthRouterApiAdapter(this.expressApp),
+      new TopControlPlane(this.expressApp).getRouter(),
     ];
-
-    new TopControlPlane(this.expressApp);
   }
 
   public listen() {

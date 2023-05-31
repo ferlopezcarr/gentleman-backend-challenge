@@ -1,0 +1,182 @@
+[
+  {
+    "category": "Rock",
+    "description": "Álbum de rock clásico",
+    "creationDate": "2020-01-01",
+    "singer": {
+      "name": "Singer 1"
+    },
+    "listens": 1000
+  },
+  {
+    "category": "Pop",
+    "description": "Álbum de música pop contemporánea",
+    "creationDate": "2020-02-01",
+    "singer": {
+      "name": "Singer 2"
+    },
+    "listens": 1500
+  },
+  {
+    "category": "Jazz",
+    "description": "Álbum de jazz instrumental",
+    "creationDate": "2021-05-10",
+    "singer": {
+      "name": "Singer 3"
+    },
+    "listens": 800
+  },
+  {
+    "category": "Hip Hop",
+    "description": "Álbum de rap",
+    "creationDate": "2022-03-15",
+    "singer": {
+      "name": "Singer 4"
+    },
+    "listens": 1200
+  },
+  {
+    "category": "Electronic",
+    "description": "Álbum de música electrónica",
+    "creationDate": "2020-12-20",
+    "singer": {
+      "name": "Singer 5"
+    },
+    "listens": 900
+  },
+  {
+    "category": "Country",
+    "description": "Álbum de música country",
+    "creationDate": "2021-08-05",
+    "singer": {
+      "name": "Singer 6"
+    },
+    "listens": 700
+  },
+  {
+    "category": "R&B",
+    "description": "Álbum de R&B contemporáneo",
+    "creationDate": "2023-01-07",
+    "singer": {
+      "name": "Singer 7"
+    },
+    "listens": 2000
+  },
+  {
+    "category": "Alternative",
+    "description": "Álbum de música alternativa",
+    "creationDate": "2022-09-12",
+    "singer": {
+      "name": "Singer 8"
+    },
+    "listens": 1100
+  },
+  {
+    "category": "Reggae",
+    "description": "Álbum de música reggae",
+    "creationDate": "2021-04-03",
+    "singer": {
+      "name": "Singer 9"
+    },
+    "listens": 600
+  },
+  {
+    "category": "Classical",
+    "description": "Álbum de música clásica",
+    "creationDate": "2022-06-25",
+    "singer": {
+      "name": "Singer 10"
+    },
+    "listens": 1500
+  },
+  {
+    "category": "Indie",
+    "description": "Álbum de música indie",
+    "creationDate": "2020-07-18",
+    "singer": {
+      "name": "Singer 11"
+    },
+    "listens": 800
+  },
+  {
+    "category": "Metal",
+    "description": "Álbum de música metal",
+    "creationDate": "2021-11-30",
+    "singer": {
+      "name": "Singer 12"
+    },
+    "listens": 1300
+  },
+  {
+    "category": "Folk",
+    "description": "Álbum de música folk",
+    "creationDate": "2022-02-14",
+    "singer": {
+      "name": "Singer 13"
+    },
+    "listens": 900
+  },
+  {
+    "category": "Latin",
+    "description": "Álbum de música latina",
+    "creationDate": "2023-03-08",
+    "singer": {
+      "name": "Singer 14"
+    },
+    "listens": 1800
+  },
+  {
+    "category": "Blues",
+    "description": "Álbum de blues clásico",
+    "creationDate": "2022-07-21",
+    "singer": {
+      "name": "Singer 15"
+    },
+    "listens": 700
+  },
+  {
+    "category": "Soul",
+    "description": "Álbum de música soul",
+    "creationDate": "2023-04-12",
+    "singer": {
+      "name": "Singer 16"
+    },
+    "listens": 1000
+  },
+  {
+    "category": "Gospel",
+    "description": "Álbum de música gospel",
+    "creationDate": "2022-10-05",
+    "singer": {
+      "name": "Singer 17"
+    },
+    "listens": 600
+  },
+  {
+    "category": "Reggaeton",
+    "description": "Álbum de música reggaeton",
+    "creationDate": "2021-03-15",
+    "singer": {
+      "name": "Singer 18"
+    },
+    "listens": 2500
+  },
+  {
+    "category": "Ska",
+    "description": "Álbum de música ska",
+    "creationDate": "2020-05-10",
+    "singer": {
+      "name": "Singer 19"
+    },
+    "listens": 500
+  },
+  {
+    "category": "Pop Rock",
+    "description": "Álbum de pop rock",
+    "creationDate": "2023-01-20",
+    "singer": {
+      "name": "Singer 20"
+    },
+    "listens": 1800
+  }
+]

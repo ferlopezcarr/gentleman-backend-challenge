@@ -1,7 +1,7 @@
 import { notUndefinedOrNull } from "@core/domain/services/field-not-provided-validator.service";
 import { RouterPort } from "@core/infraestructure/drivers/ports/router.port";
 import { Application, Request, Response } from "express";
-import { GetTopAlbumUseCase } from "../../../application/user-case/get-top-album.use-case";
+import { GetTopAlbumsUseCase } from "../../../application/user-case/get-top-albums.use-case";
 import { TopApiPort } from "../ports/top-api.port";
 import { TopNumber } from "../../../domain/models/top-number.model";
 
@@ -11,7 +11,7 @@ export class TopApiAdapter extends RouterPort implements TopApiPort {
 
   constructor(
     private app: Application,
-    private getTopUseCase: GetTopAlbumUseCase
+    private getTopUseCase: GetTopAlbumsUseCase
   ) {
     super();
     const route = this.getApiPath(this.ROUTE);
