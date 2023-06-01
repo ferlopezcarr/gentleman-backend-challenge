@@ -8,7 +8,7 @@ export class TopNumber {
     this.topNumber = isNaturalNumber(topNumber);
   }
 
-  getTopNumber(): number {
+  public getTopNumber(): number {
     return this.topNumber;
   }
 }

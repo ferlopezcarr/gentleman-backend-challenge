@@ -26,23 +26,23 @@ export class Album {
     this.listens = notUndefinedOrNull(listens);
   }
 
-  getCategory(): AlbumCategory {
+  public getCategory(): AlbumCategory {
     return this.category;
   }
 
-  getDescription(): AlbumDescription {
+  public getDescription(): AlbumDescription {
     return this.description;
   }
 
-  getCreationDate(): Date {
+  public getCreationDate(): Date {
     return this.creationDate;
   }
 
-  getSinger(): Singer {
+  public getSinger(): Singer {
     return this.singer;
   }
 
-  getListens(): Listen {
+  public getListens(): Listen {
     return this.listens;
   }
 }

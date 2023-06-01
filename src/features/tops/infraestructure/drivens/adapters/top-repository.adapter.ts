@@ -9,18 +9,10 @@ export class TopRepositoryAdapter implements TopRepositoryPort {
     this.albumsRepository = albumData as unknown as AlbumRepository[];
   }
 
-  async getTopAlbums(topNumber: number): Promise<AlbumRepository[]> {
+  async getAlbums(): Promise<AlbumRepository[]> {
     if (!this.albumsRepository) {
       return Promise.resolve([]);
     }
-
-    // Sort by top listens
-    this.albumsRepository.sort((a, b) => b.listens - a.listens);
-
-    const maxTopNumber =
-      topNumber > this.albumsRepository.length
-        ? this.albumsRepository.length
-        : topNumber;
-    return Promise.resolve(this.albumsRepository.slice(0, maxTopNumber));
+    return Promise.resolve(this.albumsRepository);
   }
 }

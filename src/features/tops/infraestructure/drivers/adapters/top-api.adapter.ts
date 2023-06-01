@@ -4,6 +4,7 @@ import { Application, Request, Response } from "express";
 import { GetTopAlbumsUseCase } from "../../../application/user-case/get-top-albums.use-case";
 import { TopApiPort } from "../ports/top-api.port";
 import { TopNumber } from "../../../domain/models/top-number.model";
+import { createAlbumApiFromEntity } from "../../../application/services/album-factory.service";
 
 export class TopApiAdapter extends RouterPort implements TopApiPort {
   private readonly ROUTE = "top";
@@ -16,7 +17,7 @@ export class TopApiAdapter extends RouterPort implements TopApiPort {
     super();
     const route = this.getApiPath(this.ROUTE);
 
-    // TOP N Albums
+    // Top N Albums
     this.app.get(
       `${route}/:topNumber/${this.ALBUM_ROUTE}`,
       this.getTopAlbums.bind(this)
@@ -32,7 +33,9 @@ export class TopApiAdapter extends RouterPort implements TopApiPort {
     }
 
     try {
-      const topAlbums = await this.getTopUseCase.execute(topNumber);
+      const topAlbums = (await this.getTopUseCase.execute(topNumber)).map(
+        (albumTemp) => createAlbumApiFromEntity(albumTemp)
+      );
       response.json(topAlbums);
     } catch (error) {
       return response.status(500).json(error);
